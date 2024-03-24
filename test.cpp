@@ -2,14 +2,20 @@
 using namespace std;
 
 int main(){
-    int a , b , sum;
-    cout << "Enter the number in a: ";
-    cin >> a;
-    cout<<"\nEnter the value for b: ";
-    cin>>b;
+    cout << "Hey this is animation and i am working!! " << endl;;
 
-    sum = a + b;
-    // cout << "\nSum of a and b = " << sum; 
-    cout<<"\nSum of "<<a<<" and "<<b<<" = "<<sum;
+    int a = 5;
+    int size = sizeof(a);
+    cout << a << endl;
+    cout << "Size of int is : " << size << endl;
+
+    float b = 1.25;
+    cout << b << endl;
+
+    char c = 'r';
+    cout << c << endl;
+
+    bool bl = true;
+    cout << bl << endl;
     return 0;
 }
