@@ -7,9 +7,7 @@ int main(){
     cout << "Enter a Number to find its complement in decimal numbers!! ";
     cin >> n;
     bitwiseComplement(n);
-    return 0;
 }
-
 int bitwiseComplement(int n){
     int count = 0;
     int digit;
@@ -31,6 +29,13 @@ int bitwiseComplement(int n){
         count++;
     }
 
+    cout << "Binary Number of " << original << " is ";
+    for(int k = 0; k < count; k++){
+        cout << binary[k]; // Printing the Binary Numbers
+    }
+
+    cout << endl;
+
     // Complementing the Binary Number
     for(i = 0; i < count; i++){
         if(binary[i] == 0){
@@ -42,8 +47,8 @@ int bitwiseComplement(int n){
     }
 
     cout << "Complement of " << original << " is ";
-    for(int k = 0; k < count; k++){    // Printing the Binary Numbers
-        cout << binary[k];
+    for(int k = 0; k < count; k++){
+        cout << binary[k]; // Printing the Binary Numbers
     }
     return 0;
 }
