@@ -12,13 +12,13 @@ int bitwiseComplement(int n){
     int count = 0;
     int digit;
     int arr[10];
-    int i = 0;
+    int i = 0;   
     int binary[10];
     int original = n;
 
     while(n != 0){
         digit = n % 2;
-        arr[i] = digit;
+        arr[i] = digit;   // Converting Decimal to Binary
         i++;
         n = n / 2;
     }
@@ -31,7 +31,7 @@ int bitwiseComplement(int n){
 
     cout << "Binary Number of " << original << " is ";
     for(int k = 0; k < count; k++){
-        cout << binary[k]; // Printing the Binary Numbers
+        cout << binary[k];   // Printing the Binary Numbers
     }
 
     cout << endl;
@@ -39,16 +39,26 @@ int bitwiseComplement(int n){
     // Complementing the Binary Number
     for(i = 0; i < count; i++){
         if(binary[i] == 0){
-            binary[i] = 1; // Convertign 0's to 1's 
+            binary[i] = 1;   // Convertign 0's to 1's 
         }
         else if(binary[i] == 1){
-            binary[i] = 0;  // converting 1's to 0's
+            binary[i] = 0;     // converting 1's to 0's
         }
     }
 
     cout << "Complement of " << original << " is ";
     for(int k = 0; k < count; k++){
-        cout << binary[k]; // Printing the Binary Numbers
+        cout << binary[k];   // Printing the Binary Numbers
     }
+
+    cout << endl;
+    // Converting Binary to Decimal
+    int weight = 1;
+    int decimal = 0;
+    for(int i = count-1; i >= 0; i--){
+        decimal = decimal + (binary[i] * weight);
+        weight = weight * 2;
+    }
+    cout << "Decimal = " << decimal;
     return 0;
 }

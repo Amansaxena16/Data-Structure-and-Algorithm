@@ -18,9 +18,13 @@ int bitwiseComplement(int n){
     int binary[10];
     int original = n;
 
+    if(n == 0){
+        return 1;
+    }
+    
     while(n != 0){
         digit = n % 2;
-        arr[i] = digit;
+        arr[i] = digit;  // Converting Decimal to Binary
         i++;
         n = n / 2;
     }
@@ -41,9 +45,13 @@ int bitwiseComplement(int n){
         }
     }
 
-    cout << "Complement of " << original << " is ";
-    for(int k = 0; k < count; k++){    // Printing the Binary Numbers
-        cout << binary[k];
+    // Converting Binary to Decimal
+    int weight = 1;
+    int decimal = 0;
+    for(int i = count-1; i >= 0; i--){
+        decimal = decimal + (binary[i] * weight);
+        weight = weight * 2;
     }
-    return 0;
+
+    return decimal;
 }
