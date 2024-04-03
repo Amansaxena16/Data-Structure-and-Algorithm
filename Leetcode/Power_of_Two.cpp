@@ -6,19 +6,24 @@ int main(){
     int n;
     cout << "Enter a Number to Check whether it is power of Two or Not!! ";
     cin >> n;
-    bool isPowerOfTwo(n);
+    int r = isPowerOfTwo(n);
+    cout << r << endl;
 }
 
 bool isPowerOfTwo(int n){
+    if(n == 1){
+        return true;
+    }
     int power = 1;
-    if(n == 0){
-        return true
-    }
+    while(power != n && power < n){
 
-    while(){
         power = power * 2;
-        if(power == )
+        cout << "power = " << power << endl;
+
+        if(power == n){
+            return true;
+        }
+        
     }
-    
-    if(power )
+    return false;
 }
