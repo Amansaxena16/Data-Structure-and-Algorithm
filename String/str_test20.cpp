@@ -1,3 +1,4 @@
+// writing a program to revome the duplicate character in a word/string
 #include <iostream>
 #include <string>
 using namespace std;
