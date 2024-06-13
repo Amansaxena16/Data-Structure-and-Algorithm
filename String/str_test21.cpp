@@ -1,32 +1,60 @@
+// Writing a program to find the pattern in a string and replacing it with the new pattern!!
 #include<iostream>
 #include<cstring>
 using namespace std;
 
 void replaceString(char text[], char patt[], int start, int end){
-    char newPatt[10] = "APT";
+    int q = 0;
+    char newpatt[5] = "ZZ";
+    
+    // Text Length 
+    int textLen = strlen(text);
 
-    int newPattLen = strlen(newPatt);
-    int pattlen = end;
+    // Length of both the Pattern
+    int newPattLen = strlen(newpatt);
+    int pattLen = end;
 
-    if(newPatt > pattlen){
+    // If New pattern Len is greater then Old pattern Length!! 
+    if(newPattLen > pattLen){
+        // Right Shift
+        for(int i = textLen; i > (start+newPattLen) - 1; i--){
+            text[i] = text[i-1];
+        }
+        cout << "After right shift : " << text << endl;
+        // Inserting the values
+        for(int j = start; j < (start + newPattLen); j++){
+            text[j] = newpatt[q];
+            q++;
+        }
+    }
+    else if(newPattLen < pattLen){
+        // Left shift
+        int i = 0;
+        for(i = (start + pattLen) - 1; text[i] != '\0'; i++){
+            text[i-1] = text[i];
+        }
+        text[i-1] = '\0';
         
-    }
-    if else(newPattLen < pattlen){
-
-    }
-
-    int j = 0;
-
-    for(int i = start; i < start + end; i++){
-        text[i] = newPatt[j];
-        j++;
+        // Inserting the new pattern into the string
+        for(int j = start; j < (start + newPattLen); j++){
+            text[j] = newpatt[q];
+            q++;
+        }
     }
 
-    cout << text << endl;
+    else{
+        // Inserting the new pattern into the string
+        for(int j = start; j < (start + newPattLen); j++){
+            text[j] = newpatt[q];
+            q++;
+        }
+    }
+
+    cout << "Ans : " << text;
 }
 
 int main(){
-    char text[20] ="ABCDABCF";
+    char text[20] ="ABCDEFGH";
     char patt[10] = "BC";
 
     int pattlen = strlen(patt);
