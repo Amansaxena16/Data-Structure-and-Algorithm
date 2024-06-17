@@ -15,9 +15,9 @@ void linkedlistTraversal(struct Node *ptr){
 
 int main(){
     // Creating variable
-    struct Node *head;
-    struct Node *second;
-    struct Node *third;
+    struct Node *head = NULL;
+    struct Node *second = NULL;
+    struct Node *third = NULL;
 
     // Size in the variable
     head = (struct Node*) malloc(sizeof(struct Node));
