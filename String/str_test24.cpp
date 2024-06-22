@@ -15,9 +15,13 @@ char FindDuplicate(string str){
     int max_index = 0;
     for(int i = 0; i < 25; i++){
         if(apha[i] > value){
-            apha[i] = value;
+            value = apha[i];
              max_index = i;
         }
+    }
+
+    if(max_index <= 2){
+        return 0;
     }
 
     char character = max_index + 'a';
@@ -30,6 +34,13 @@ int main(){
     cout << "Enter a String : ";
     cin >> str;
 
-    cout << "Maximum Character is : " << FindDuplicate(str);
+    char dupli_char =  FindDuplicate(str);
+
+    if(dupli_char >= 'a' && dupli_char <= 'z'){
+        cout << "Duplicate Character : " << dupli_char;
+    }
+    else{
+        cout << "No Duplicate Character!!";
+    }
     return 0;
 }
