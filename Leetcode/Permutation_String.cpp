@@ -1,3 +1,4 @@
+// writing a program to find the string 1 into string 2 and returning true or false!!
 #include<iostream>
 #include<string>
 using namespace std;
