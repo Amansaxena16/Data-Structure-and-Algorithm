@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-// Function to check if there are any adjacent duplicates in the string
 bool recheck(const string& s){
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i + 1]) {
@@ -12,7 +11,6 @@ bool recheck(const string& s){
     return true;
 }
 
-// Function to remove a segment of the string starting at index 'start' and of length 'count'
 string rightShift(string s, int start, int count){
     for (int i = start + count; i < s.length(); i++) {
         s[i - count] = s[i];
@@ -21,11 +19,9 @@ string rightShift(string s, int start, int count){
     return s;
 }
 
-// Function to remove adjacent duplicates
 string removeDuplicates(string s) {
     int start = -1;
     
-    // Find the first pair of adjacent duplicates
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i + 1]) {
             start = i;
@@ -33,7 +29,6 @@ string removeDuplicates(string s) {
         }
     }
 
-    // If no duplicates are found, return the string
     if (start == -1) {
         return s;
     }
@@ -47,7 +42,6 @@ string removeDuplicates(string s) {
         }
     }
 
-    // Remove the segment with duplicates
     s = rightShift(s, start, count);
     cout << s << endl;
 
@@ -59,7 +53,6 @@ string removeDuplicates(string s) {
         return "";
     }
 
-    // Recursively remove remaining duplicates
     if (!recheck(s)) {
         return removeDuplicates(s);
     } else {
