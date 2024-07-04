@@ -79,7 +79,7 @@ void insertAtIndex(struct node **head){
         }
 
         struct node *newNode = NULL;
-        newNode = malloc(sizeof(struct node));
+        newNode = (struct node *)malloc(sizeof(struct node));
 
         int data;
         printf("Enter your data in index Node : ");
@@ -102,7 +102,7 @@ void insertAtLast(struct node **head){
     scanf("%d",&data);
 
     struct node *newNode = NULL;
-    newNode = malloc(sizeof(struct node));
+    newNode = (struct node *)malloc(sizeof(struct node));
 
     newNode -> data = data;
     newNode -> next = NULL;
@@ -123,7 +123,7 @@ void insertAtBeginning(struct node **head){
     scanf("%d",&data);
 
     struct node *newNode = NULL;
-    newNode = malloc(sizeof(struct node));
+    newNode = (struct node *)malloc(sizeof(struct node));
     newNode -> data = data;
     newNode -> next = *head;
 
@@ -133,7 +133,7 @@ void insertAtBeginning(struct node **head){
 int main(){
 
     struct node *head = NULL;
-    head = malloc(sizeof(struct node));
+    head = (struct node *)malloc(sizeof(struct node));
 
     head -> data = 4;
     head -> next = NULL;
