@@ -6,7 +6,7 @@ int findMinimum(int nums[], int n){
     int min = nums[0];
 
     for(int i = 0; i < n; i++){
-        if(min > nums[i]){
+        if(min >= nums[i]){
             min = nums[i];
             index = i;
         }
@@ -42,9 +42,10 @@ int CheckSorted(int nums[], int n, int index){
 }
 
 int main(){
-    int n = 5;
-    int nums[n] = {3,4,5,1,2};
+    int n = 3;
+    int nums[n] = {6,10,6};
     int index = findMinimum(nums,n);
+    cout << index ;
     CheckSorted(nums,n,index);
 
 }
