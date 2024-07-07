@@ -1,51 +1,76 @@
 #include<iostream>
 using namespace std;
 
-int findMinimum(int nums[], int n){
-    int index;
-    int min = nums[0];
+// Approach 1st  
 
-    for(int i = 0; i < n; i++){
-        if(min >= nums[i]){
-            min = nums[i];
-            index = i;
-        }
-    }
+// int findMinimum(int nums[], int n){
+//     int index;
+//     int min = nums[0];
 
-    return index;
-}
+//     for(int i = 0; i < n; i++){
+//         if(min >= nums[i]){
+//             min = nums[i];
+//             index = i;
+//         }
+//     }
 
-int CheckSorted(int nums[], int n, int index){
-    int newArray[n];
-    int j = 0;
+//     return index;
+// }
 
-    // Right Shift start from here
-    for(int i = index; i < n; i++){
-        newArray[j] = nums[i];
-        j++;
-    }
+// int CheckSorted(int nums[], int n, int index){
+//     int newArray[n];
+//     int j = 0;
 
-    for(int i = 0; i < index; i++){
-        newArray[j] = nums[i];
-        j++;
-    }
+//     // Right Shift start from here
+//     for(int i = index; i < n; i++){
+//         newArray[j] = nums[i];
+//         j++;
+//     }
+
+//     for(int i = 0; i < index; i++){
+//         newArray[j] = nums[i];
+//         j++;
+//     }
     
-    // checking if it is sorted or not
-    for(int i = 0; i < n; i++){
-        if(newArray[i] > newArray[i+1]){
-            return false;
+//     // checking if it is sorted or not
+//     for(int i = 0; i < n; i++){
+//         if(newArray[i] > newArray[i+1]){
+//             return false;
+//         }
+//         else{
+//             return true;
+//         }
+//     }
+// }
+
+// Approach 2nd 
+
+int findMinimum(int nums[], int n) {
+    int count = 0;
+
+    for(int i = 1; i < n; i++){
+        if(nums[i - 1] > nums[i]){
+            count++;
         }
-        else{
-            return true;
-        }
+    }
+
+    if(nums[n - 1] > nums[0]){
+        count++;
+    }
+
+    if(count <= 1){
+        return true;
+    }
+    else{
+        return false;
     }
 }
 
 int main(){
     int n = 3;
     int nums[n] = {6,10,6};
-    int index = findMinimum(nums,n);
-    cout << index ;
-    CheckSorted(nums,n,index);
+    // int index = findMinimum(nums,n);
+    // cout << index ;
+    // CheckSorted(nums,n,index);
 
 }
