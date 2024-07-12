@@ -9,7 +9,7 @@ struct node{
 void deleteAtPosition(struct node **head){
     struct node *temp = *head;
     int count = 0;
-    while(temp -> next != NULL){
+    while(temp != NULL){
         count++;
         temp = temp -> next;
     }
@@ -18,7 +18,7 @@ void deleteAtPosition(struct node **head){
     printf("Enter the Position you want to delete : ");
     scanf("%d",&position);
 
-    if(position > count){
+    if(position >= count){
         printf("Can't delete this position!!");
     }
     else{
@@ -138,9 +138,9 @@ int main(){
     insertAtPosition(&head);
     printing(head);
     printf("------------------------------\n");
+    deleteAtPosition(&head);
     deleteAtBeginning(&head);
     deleteAtLast(&head);
-    deleteAtPosition(&head);
     printing(head);
     return 0;
 }
