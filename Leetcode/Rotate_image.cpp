@@ -1,3 +1,4 @@
+// writing a program to roatate the 2D array in 90 degree!!
 #include<iostream>
 using namespace std;
 
