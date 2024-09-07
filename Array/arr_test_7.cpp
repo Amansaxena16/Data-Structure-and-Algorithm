@@ -4,33 +4,24 @@ using namespace std;
 
 bool checkSorted(int arr[], int n){
 
-    int max = 0;
-    int index = 0;
-    for(int i = 0; i < n; i++){
-        if(arr[i]> max){
-            max = arr[i];
-            index = i;
-        }
+    int count = 0;
+    if(arr[0] < arr[n-1]){
+        count++;
     }
-
-    for(int i = index; i > 0; i--){
-        if(arr[i] <= arr[i - 1]){
+    for(int i = 0; i < n -1; i++){
+        if(arr[i] > arr[i+1]){
+            count++;
+        }
+        if(count >= 2){
             return false;
         }
     }
-    
-    for(int i = index + 1; i < n - 1; i++){
-        if(arr[i] >= arr[i + 1]){
-            return false;
-        }
-    }
-
     return true;
 }
 
 int main(){
     
-    int arr[4] = {6,7,7,5};
+    int arr[4] = {2,1,3,4};
     
     if(checkSorted(arr,4)){
         cout << "True" << endl;
