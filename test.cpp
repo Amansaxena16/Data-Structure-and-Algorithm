@@ -1,29 +1,19 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<unordered_map>
 using namespace std;
 
-void removeChar(string s) {
-    int len = s.length();
-    for (int i = 0; i < len; i++) {
-        for (int j = i + 1; j < len; j++) {
-            if (s[i] == s[j]) {
-                // Left shift 
-                for (int k = j; k < len - 1; k++) {
-                    s[k] = s[k + 1];
-                }
-                s.pop_back();  
-            }
-        }
-    }
+int main(){
+    
+    // declaring the unordered map that stores strings as key and value as pair
+    unordered_map<string, int> ageMap;
 
-    cout << s;
-}
+    ageMap["aman"] = 22;
+    ageMap["shruti"] = 20;
+    ageMap["goldi"] = 26;
 
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
+    cout << "shruti age is : " << ageMap["shruti"] << endl;
+    cout << "aman age is : " << ageMap["aman"] << endl;
+    cout << "goldi age is : " << ageMap["goldi"] << endl;
 
-    removeChar(s);
     return 0;
 }
