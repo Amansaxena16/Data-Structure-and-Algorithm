@@ -4,6 +4,20 @@ using namespace std;
 
 void printLike90Degree(int arr[][3], int row, int col){
     
+    int ans[row][col];
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            ans[j][row - 1 - i] = arr[i][j];
+        }
+    }
+
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            cout << ans[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
 
 int main(){
