@@ -5,18 +5,7 @@
 using namespace std;
 
 void merge(vector<int> num1, vector<int> num2){
-
-    for(int i = 0; i < num2.size(); i++){
-        num1.push_back(num2[i]);
-    }
-    // sorting the vector
-    sort(num1.begin(), num1.end());
-
-    // printing the array
-    for(int i = 0; i < num1.size(); i++){
-        cout << num1[i] << " ";
-    } 
-    cout << endl;
+     
 } 
 
 int main(){
