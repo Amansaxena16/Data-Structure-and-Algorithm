@@ -83,7 +83,7 @@ void merge(int arr1[], int n, int arr2[], int m){
     }
     cout << endl; 
     for(int j = 0; j < m; j++){
-        cout << arr2[j] << " ";
+        cout << arr2[j] << " "; 
     }
     cout << endl;
 
