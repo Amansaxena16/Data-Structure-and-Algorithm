@@ -6,50 +6,47 @@ int count = 0;
 
 void merge(int arr[], int start, int end){
     int mid = (start + end) / 2;
+    int len = end - start + 1;
+    int *merge = new int[len];
 
-    int len1 = (mid - start) + 1;
-    int len2 = end - mid;
+    int left = start;
+    int right = mid + 1;
+    int i = 0;
 
-    int *first = new int[len1];
-    int *second = new int[len2];
-
-    int index = start;
-
-    // copying left part into first array
-    for(int i = 0; i < len1; i++){
-        first[i] = arr[index++];
-    }
-
-    index = mid + 1;
-    // copying right part into second array
-    for(int i = 0; i < len2; i++){
-        second[i] = arr[index++];
-    }
-
-    int left = 0; 
-
-    // Checking if first array value is greater then count while increase by len2 value
-    while(left < len1){
-
-        if(first[left] > second[0]){
-            count = count + len2;
-            cout <<"count : " <<  count << endl;
-
+    while(left <= mid && right <= end){
+        // here left is smaller
+        if(arr[left] <= arr[right]){
+            merge[i++] = arr[left++];
         }
-        left++;
+        // here right is smaller
+        else{
+            merge[i++] = arr[right++];
+            count = count + (mid - left + 1);
+        }
     }
 
-    // free the dynamic memory allocation 
-    delete[] first;
-    delete[] second;    
+    while(left <= mid){
+        merge[i++] = arr[left++];
+    }
+
+    while(right <= end){
+        merge[i++] = arr[right++];
+    }
+    
+    for(int i = 0, j = start; i < len; i++, j++){
+        arr[j] = merge[i];
+    }
+
+    delete[] merge;
 }
 
 void mergeSort(int arr[], int start, int end){
-    int mid = (start + end) / 2;
 
     if(start >= end){
         return;
     }
+
+    int mid = (start + end) / 2;
 
     // Sorting left half
     mergeSort(arr,start, mid);
@@ -63,6 +60,7 @@ void mergeSort(int arr[], int start, int end){
 }
 
 int getInversion(int arr[], int n){
+
     mergeSort(arr,0,n-1);
     return count;
 }   
@@ -71,7 +69,7 @@ int main(){
     
     int arr[5] = {2,5,1,3,4};
     int n = 5;
-    cout << "Number of Inversion in an array is : " <<  getInversion(arr, n) << endl;
+    getInversion(arr,n);
 
     return 0;
 }
