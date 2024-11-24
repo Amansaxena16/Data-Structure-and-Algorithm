@@ -3,8 +3,18 @@
 using namespace std;
 
 int subarraySum(int arr[], int n, int k){
-    
-    return 0;
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        int sum = 0;
+        for(int j = i; j < n; j++){
+            sum = sum + arr[j];
+
+            if(sum == k){
+                count++;
+            }
+        }
+    }
+    return count;
 }
 
 int main(){
