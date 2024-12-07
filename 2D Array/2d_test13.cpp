@@ -34,11 +34,11 @@ void printSpiral(int arr[][4], int row, int col){
         endingRow--;
 
         // printing starting row 
-        for(int i = startingCol; count < total && i <= endingCol; i++){
-            cout << arr[startingRow][i] << "\t";
+        for(int i = endingRow; count < total && i >= startingRow; i--){
+            cout << arr[i][startingCol] << "\t";
             count++;
         }
-        startingRow++;
+        startingCol++;
     }
     cout << endl;
 }
