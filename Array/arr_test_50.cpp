@@ -14,24 +14,25 @@ void nextPermutation(int arr[], int n){
         }
     }
 
-    // finding the largest value
-    int largestValue = -1;
-    for(int i = dipIndex + 1; i < n; i++){
-        if(arr[i] > largestValue){
-            largestValue = arr[i];
-        }
-    }
-    // finding out the exact larger value of the dipindex value
-    int largerValue = -1;
-    for(int i = dipIndex + 1; i < n; i++){
-        if(arr[i] > arr[dipIndex] && arr[i] < largestValue){
-            swap(arr[i], arr[dipIndex]);
+    // finding the exact largest value in the array
+    for(int i = n - 1; i >= dipIndex; i--){
+        if(arr[i] > arr[dipIndex]){
+            swap(arr[i],arr[dipIndex]);
             break;
         }
     }
-
     // sorting the element after the dipIndex
-    sort()
+    int i = dipIndex + 1;
+    int j = n -1;
+
+    while(i < j){
+        swap(arr[i++],arr[j--]);
+    }
+
+    // printing the array
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << "\t";
+    }
 }
 
 int main(){
