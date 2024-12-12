@@ -1,33 +1,37 @@
 // writing a program to find the sub array whose sum is 0
 #include<iostream>
+#include<unordered_map>
 using namespace std;
 
 int findSubArray(int arr[], int n){
-    int count = 0;
-    int element = 0;
+    int max = 0;
+    int sum = 0;
 
-    for(int i = 0; i < n -1; i++){
-        for(int j = i; j < n; j++){
-            count = count + arr[j];
-            element++;
+    unordered_map<int,int> mpp;
 
-            // cout << count << "\t";
+    for(int i = 0; i < n; i++){
+        sum = sum + arr[i];
 
-            if(count == 0){
-                cout << endl << "Number of Elements are : " << element << endl;
-                return 0; 
+        if(sum == 0){
+            max = i + 1;
+        }
+        else{
+            if(mpp.find(sum) != mpp.end()){
+                max = i - mpp[sum];
+            }
+            else{
+                mpp.insert({sum,i});
             }
         }
-        count = 0;
-        element = 0;
-    }
+    } 
 
+    cout << max << endl;
     return 0;
 }
 
 int main(){
     
-    int arr[8] = {15,-2,2,-8,1,7,10,23};
-    findSubArray(arr,8);
+    int arr[20] = {65 ,-4, 0, -43, 79, 46 ,-33, -23, 6, -4, 21, -29, -20, -5, 37 ,-47, 80 ,-79, -68, 42};
+    findSubArray(arr,20);
     return 0;
 }
