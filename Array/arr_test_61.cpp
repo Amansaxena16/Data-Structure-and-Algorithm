@@ -11,11 +11,17 @@ int removeDuplicate(int arr[], int n){
             largest = arr[i];
         }
     }
-    int test[largest] = 0;
+    int test[largest + 1] = 0;
 
     for(int i = 0; i < largest; i++){
-        
+        test[arr[i]]++;
     }
+
+    for(int i = 0; i < largest; i++){
+        if(test[])
+    }
+
+    return count;
 }
 
 int main(){
