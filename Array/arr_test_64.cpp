@@ -10,15 +10,10 @@ int findMinDiff(int arr[], int n, int m){
     sort(arr, arr + n);  
 
     int diff = INT_MAX;
-    for(int i = 0; i < n; i++){
-        if(i + (m - 1) < n){
-            int current_diff = arr[i + (m - 1) - arr[i]];
-            if(current_diff< diff){
-                diff = current_diff;
-            }
-        }
-        else{
-            break;
+    for(int i = 0; i+m-1 < n; i++){
+        int current_diff = arr[i + (m - 1)] - arr[i];
+        if(current_diff < diff){
+            diff = current_diff;
         }
     }
 
