@@ -3,31 +3,35 @@
 using namespace std;
 
 int removeDuplicate(int arr[], int n){
-    int count = 0;
-    int largest = 0;
+    int i = 0;
+    int j = i + 1;
+    int count = 1;
 
-    for(int i = 0; i < n ; i++){
-        if(arr[i] > largest){
-            largest = arr[i];
+    while(j < n){
+        if(arr[i] != arr[j]){
+            i++;
+            swap(arr[i],arr[j]);
+            count++;
+            j++;
         }
-    }
-    int test[largest + 1] = 0;
+        else{
+            j++;
+        }
+    } 
 
-    for(int i = 0; i < largest; i++){
-        test[arr[i]]++;
+    // printing the array
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
     }
-
-    for(int i = 0; i < largest; i++){
-        if(test[])
-    }
-
+    
+    cout << endl;
     return count;
 }
 
 int main(){
 
-    int arr[6] = {1,1,1,2,2,3};
-    cout << removeDuplicate(arr,6) << endl; 
+    int arr[10] = {0,0,1,1,1,2,2,3,3,4};
+    cout << removeDuplicate(arr,10) << endl; 
 
     return 0;
 }
