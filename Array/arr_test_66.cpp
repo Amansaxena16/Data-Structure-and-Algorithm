@@ -3,22 +3,22 @@
 using namespace std;
 
 void merge(int nums1[], int n, int nums2[], int m){
-    int x = n - m - 1;
-    int y = n;
-    int z = m;
+    int i = (n - m) - 1;
+    int j = m - 1;
+    int k = n - 1;
 
-    while(z && x >= 0){
-        if(nums1[x] < nums2[z]){
-            nums1[y--] = nums2[z--];
+    while(i >= 0 && j >= 0){
+        if(nums1[i] < nums2[j]){
+            nums1[k--] = nums2[j--];
         }
         else{
-            nums1[y--] = nums1[x--];
+            nums1[k--] = nums1[i--];
         }
     }
 
     // printing the array
     for(int i = 0; i < n; i++){
-        cout << nums1[i] << " ";
+        cout << nums1[i] << "\t";
     }
     cout << endl;
 }
