@@ -5,28 +5,33 @@
 using namespace std;
 
 void findDuplicates(int arr[], int n){
-    unordered_map<int,int> countMap;
     vector<int> nums;
 
     for(int i = 0; i < n; i++){
-        countMap[arr[i]]++;
+        int index = abs(arr[i]) - 1;
 
-        if(countMap[arr[i]] >= 2){
+        if(arr[index] > 0){
+            arr[index] = -abs(arr[index]);
+        }
+        else{
+            if(arr[i] < 0){
+                arr[i] = abs(arr[i]);
+            }
             nums.push_back(arr[i]);
         }
-    }       
+    }
 
-    // printing the elements in vector
+    // printing the vector
     for(auto i : nums){
-        cout << i << "\t";
+        cout << i << "\t"; 
     }
     cout << endl;
 }
 
 int main(){
     
-    int arr[8] = {4,3,2,7,8,2,3,1};
-    findDuplicates(arr,8);
+    int arr[20] = {3,11,8,16,4,15,4,17,14,14,6,6,2,8,3,12,15,20,20,5};
+    findDuplicates(arr,20);
 
     return 0;
 }
