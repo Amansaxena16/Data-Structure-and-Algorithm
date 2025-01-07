@@ -16,7 +16,7 @@ bool checkPalindrome(string str){
 
 int main(){
     
-    string str = "racecar";
+    string str = "Ac3?e3c&a";
     cout << checkPalindrome(str) << endl;
     return 0;
 }
