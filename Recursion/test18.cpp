@@ -15,7 +15,7 @@ int main(){
     
     int n1 = 0;
     int n2 = 1;
-    int range = 2;
+    int range = 12;
     fibonacci(n1,n2,range);
     cout << endl;
     return 0;
